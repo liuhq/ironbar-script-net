@@ -4,9 +4,9 @@ A network speed monitoring script for Ironbar that displays real-time upload and
 
 ## Installation
 
-### Archlinux
+### Download
 
-Get from AUR [ironbar-script-net](https://aur.archlinux.org/packages/ironbar-script-net)
+Get from [release](https://github.com/liuhq/ironbar-script-net/releases)
 
 ### Build from source
 
