@@ -4,6 +4,9 @@
   "module": "main.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "tag": "git tag -s \"$(jq -r .version package.json)\""
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
