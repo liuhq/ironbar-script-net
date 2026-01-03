@@ -12,17 +12,13 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v4
-      - name: Install Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
       - name: build
-        run: bun build.ts
+        run: cargo build --release
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ironbar-script-net-${{ github.ref_name }}
-          path: dist/ironbar-script-net
+          path: target/release/ironbar-script-net
           compression-level: 6
           overwrite: true
   release:
@@ -39,11 +35,15 @@ jobs:
         with:
           path: dist
           merge-multiple: true
+      - name: Prerelease
+        run: |
+          cd dist
+          mv ironbar-script-net ironbar-script-net_${{ github.ref_name }}
       - name: Create Release ${{ github.ref_name }}
         uses: softprops/action-gh-release@v2.3.3
         with:
           tag_name: ${{ github.ref_name }}
           name: ${{ github.ref_name }}
           draft: true
-          files: dist/**/*
+          files: dist/ironbar-script-net_${{ github.ref_name }}
           make_latest: true
