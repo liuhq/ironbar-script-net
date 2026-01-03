@@ -10,19 +10,15 @@ Get from [release](https://github.com/liuhq/ironbar-script-net/releases)
 
 ### Build from source
 
-**Requirements**:
-
-- [bun](https://bun.com/)
-
 Build steps:
 
 ```sh
 git clone https://github.com/liuhq/ironbar-script-net.git
 cd ironbar-script-net
-bun build.ts
+cargo build --release
 ```
 
-The built binary will be localed in `dist/ironbar-script-net`.
+The built binary will be localed in `target/release/ironbar-script-net`.
 
 ## Usage
 
